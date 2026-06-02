@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dolce Capo — Gelateria Artigianale a Palermo</title>
+  <meta name="description" content="Dolce Capo, gelateria artigianale nel cuore di Palermo. Pistacchio di Bronte, cannoli siciliani e brioche col tuppo. 4.9★ con oltre 5.610 recensioni.">
+  <meta property="og:title" content="Dolce Capo — Gelateria Artigianale a Palermo">
+  <meta property="og:description" content="Pura ossessione siciliana. Gelato artigianale, cannoli e brioche col tuppo in Via dei Candelai, Palermo.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "IceCreamShop",
+    "name": "Dolce Capo",
+    "image": "/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via dei Candelai, 95/97",
+      "addressLocality": "Palermo",
+      "postalCode": "90134",
+      "addressCountry": "IT"
+    },
+    "telephone": "+39 091 976 8817",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "5610"
+    },
+    "openingHours": "Mo-Su 11:00-00:00"
+  }
+  </script>
+  <style>
+    :root {
+      --background: #faf8f5;
+      --foreground: #1a1814;
+      --surface: #f5f0e8;
+      --border: #e0d8cc;
+      --terracotta: #c4654a;
+      --pistachio: #87a878;
+      --cream: #f5f0e8;
+      --muted: #6b6560;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', system-ui, sans-serif; }
+    
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      text-decoration: none;
+      color: var(--foreground);
+      letter-spacing: -0.02em;
+    }
+    nav .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav .nav-links a {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--foreground);
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--terracotta); }
+    nav .location {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      display: none;
+    }
+    @media (min-width: 768px) {
+      nav .location { display: block; }
+      nav .brand { position: absolute; left: 50%; transform: translateX(-50%); }
+    }
+    
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1.5rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background: radial-gradient(circle at center, var(--terracotta) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 64rem;
+    }
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 0.85;
+      margin-bottom: 2rem;
+      text-wrap: balance;
+    }
+    .hero h1 i {
+      font-weight: 400;
+      font-style: italic;
+    }
+    .hero-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+    @media (min-width: 768px) {
+      .hero-row { flex-direction: row; justify-content: center; }
+    }
+    .hero-img-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .hero-img-wrap img {
+      width: 16rem;
+      height: 16rem;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      transition: transform 0.7s;
+    }
+    .hero-img-wrap:hover img { transform: scale(1.05); }
+    @media (min-width: 768px) {
+      .hero-img-wrap img { width: 20rem; height: 20rem; }
+    }
+    .hero-img-badge {
+      position: absolute;
+      bottom: -0.5rem;
+      right: -0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background: var(--foreground);
+      color: var(--background);
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+    }
+    .hero-quote {
+      max-width: 20rem;
+      text-align: left;
+    }
+    .hero-quote p {
+      font-size: 1.125rem;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      text-wrap: pretty;
+    }
+    .hero-stars {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-stars .stars {
+      display: flex;
+      gap: 2px;
+      color: var(--terracotta);
+    }
+    .hero-stars span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Sections */
+    section { padding: 8rem 1.5rem; }
+    .container {
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 5rem;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .section-header { flex-direction: row; align-items: flex-end; }
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-style: italic;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 0.875rem;
+      opacity: 0.7;
+      line-height: 1.75;
+      max-width: 24rem;
+    }
+    .section-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      opacity: 0.4;
+      white-space: nowrap;
+    }
+    
+    /* Menu */
+    #menu { background: var(--surface); border-top: 1px solid var(--border); }
+    .menu-grid {
+      display: grid;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .menu-grid { grid-template-columns: 1fr 1fr; gap: 3rem 4rem; }
+    }
+    .menu-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--terracotta);
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+    }
+    .menu-body { flex: 1; }
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .menu-row .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      min-width: 2rem;
+    }
+    .menu-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+    }
+    .menu-origin {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+    .menu-desc {
+      font-size: 0.875rem;
+      opacity: 0.6;
+      line-height: 1.75;
+    }
+    
+    /* Story */
+    .story-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .story-grid { grid-template-columns: 2fr 3fr; }
+    }
+    .story-body {
+      font-size: 1.125rem;
+      line-height: 1.75;
+      color: var(--foreground);
+      opacity: 0.8;
+    }
+    .story-body p + p { margin-top: 1.5rem; }
+    .story-quote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--terracotta);
+      margin: 1.5rem 0;
+    }
+    
+    /* Reviews */
+    .reviews-bg {
+      background: rgba(135,168,120,0.08);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    .reviews-header .stars {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      color: var(--terracotta);
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .reviews-grid {
+      display: grid;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .review blockquote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    .review {
+      display: flex;
+      flex-direction: column;
+    }
+    .review-author {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .review-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      opacity: 0.5;
+      margin-top: 0.25rem;
+    }
+    
+    /* Visit */
+    .visit-grid {
+      display: grid;
+      gap: 5rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .visit-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .visit-info > div + div { margin-top: 1.5rem; }
+    .visit-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 0.25rem;
+    }
+    .visit-value {
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+    .visit-value a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .visit-value a:hover { color: var(--terracotta); }
+    .visit-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .btn-primary, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--foreground);
+      color: var(--background);
+    }
+    .btn-primary:hover { background: var(--terracotta); }
+    .btn-secondary {
+      border: 1px solid rgba(26,24,20,0.2);
+      color: var(--foreground);
+    }
+    .btn-secondary:hover {
+      background: var(--foreground);
+      color: var(--background);
+    }
+    .visit-img-wrap {
+      position: relative;
+    }
+    .visit-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 1rem;
+      filter: grayscale(100%);
+      transition: filter 1s;
+    }
+    .visit-img-wrap:hover img { filter: grayscale(0%); }
+    .visit-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--terracotta);
+      color: var(--background);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      max-width: 60%;
+    }
+    .visit-badge p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.3;
+    }
+    @media (max-width: 768px) {
+      .visit-badge { right: 0; bottom: -1rem; padding: 1.25rem; }
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      opacity: 0.4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    @media (min-width: 768px) {
+      .footer-inner { flex-direction: row; justify-content: space-between; }
+    }
+    
+    /* Animations */
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-reveal {
+      opacity: 0;
+      animation: reveal 0.8s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.4s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="location">Palermo · Via dei Candelai</span>
+    <a href="#top" class="brand">Dolce Capo</a>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#storia">Storia</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <span class="hero-label animate-reveal delay-1">L'Artigianato del Freddo · Dal 1985</span>
+      <h1 class="animate-reveal delay-2">Pura <i>Ossessione</i> Siciliana</h1>
+      <div class="hero-row animate-reveal delay-3">
+        <div class="hero-img-wrap">
+          <img src="/hero-pistachio.jpg" alt="Coppa di gelato al pistacchio di Bronte di Dolce Capo" class="animate-float">
+          <div class="hero-img-badge">Il Pistacchio</div>
+        </div>
+        <div class="hero-quote">
+          <p>"Un momento di sospensione tra i vicoli di Palermo, dove il tempo si ferma per un cucchiaio di perfezione."</p>
+          <div class="hero-stars">
+            <div class="stars">★★★★★</div>
+            <span>4,9/5 · 5.610 RECENSIONI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">Il Menu</span>
+          <h2 class="section-title">I Nostri Classici</h2>
+          <p class="section-desc">Ogni gusto è una narrazione del territorio, mantecato giornalmente con latte di montagna e ingredienti selezionati a chilometro zero.</p>
+        </div>
+        <span class="section-meta">CARTA · ESTATE MMXXVI</span>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <span class="menu-num">01</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Vaschette di Gelato</h3>
+              <div class="line"></div>
+              <span class="menu-origin">2 formati</span>
+            </div>
+            <p class="menu-desc">Le nostre vaschette mantecate giornalmente, perfette da portare a casa o condividere con chi ami.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">02</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Coppette di Gelato</h3>
+              <div class="line"></div>
+              <span class="menu-origin">3 misure</span>
+            </div>
+            <p class="menu-desc">Piccola, media o grande: scegli i gusti tra le nostre creazioni artigianali del giorno.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">03</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Vaschette Monogusto 500g</h3>
+              <div class="line"></div>
+              <span class="menu-origin">25 gusti</span>
+            </div>
+            <p class="menu-desc">Pistacchio di Bronte, cioccolato di Modica, nocciola, frutta di stagione e tanto altro.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">04</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Brioches col Tuppo</h3>
+              <div class="line"></div>
+              <span class="menu-origin">Tradizione</span>
+            </div>
+            <p class="menu-desc">La brioche siciliana soffice e profumata, l'unico modo autentico di gustare il gelato.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">05</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Crêpes & Waffel</h3>
+              <div class="line"></div>
+              <span class="menu-origin">Caldi</span>
+            </div>
+            <p class="menu-desc">Crêpes fragranti e waffel croccanti farciti con gelato, nutella e topping a scelta.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">06</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Pokè Gelato</h3>
+              <div class="line"></div>
+              <span class="menu-origin">Signature</span>
+            </div>
+            <p class="menu-desc">Base waffle, gelato a scelta e nutella. La nostra reinterpretazione golosa del bowl.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">07</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Coni Mignon & Coppette di Panna</h3>
+              <div class="line"></div>
+              <span class="menu-origin">Sfiziosi</span>
+            </div>
+            <p class="menu-desc">Piccoli formati per concedersi una pausa dolce, con panna fresca montata al momento.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span class="menu-num">08</span>
+          <div class="menu-body">
+            <div class="menu-row">
+              <h3 class="menu-name">Bevande</h3>
+              <div class="line"></div>
+              <span class="menu-origin">9 referenze</span>
+            </div>
+            <p class="menu-desc">Acqua, bibite, birre e una selezione di bevande fresche per accompagnare il dessert.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="storia">
+    <div class="container">
+      <div class="story-grid">
+        <div>
+          <span class="section-label">La Storia</span>
+          <h2 class="section-title">Quattro generazioni di gelato.</h2>
+        </div>
+        <div class="story-body">
+          <p>Nasciamo nel cuore antico di Palermo, dove i profumi del mercato della Vucciria si mescolano al canto del mare. Dolce Capo è un piccolo laboratorio dove ogni mantecazione è una promessa: ingredienti veri, tempo lento, mani esperte.</p>
+          <p class="story-quote">"Non vendiamo gelato. Vendiamo un pomeriggio siciliano."</p>
+          <p>Selezioniamo personalmente il pistacchio di Bronte, il cioccolato di Modica, la ricotta di pecora dei pascoli delle Madonie. Ogni mattina alle cinque siamo già al banco a impastare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-bg">
+    <div class="container">
+      <div class="reviews-header">
+        <div class="stars">★★★★★</div>
+        <span class="section-label" style="margin-bottom:0">4,9 su 5 · 5.610 recensioni Google</span>
+      </div>
+      <div class="reviews-grid">
+        <figure class="review">
+          <blockquote>"Il gelato alla frutta non sa di frutta ma è proprio solo frutta, un incredibile sapore di artigianato e qualità."</blockquote>
+          <figcaption>
+            <div class="review-author">Giuseppe Li Vigni</div>
+            <div class="review-role">Local Guide · 116 recensioni</div>
+          </figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>"Ci hanno accolti con immensa gentilezza e professionalità. Ci hanno fatto assaggiare i gusti, cosa che rarissimamente fanno gli altri in città."</blockquote>
+          <figcaption>
+            <div class="review-author">Piergaetano Marrone</div>
+            <div class="review-role">Recensito 6 mesi fa</div>
+          </figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>"Il gusto limone è spettacolare e il cannolo con la ricotta fresca è squisito. Da provare assolutamente."</blockquote>
+          <figcaption>
+            <div class="review-author">Recensione verificata</div>
+            <div class="review-role">Cliente Google</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti">
+    <div class="container">
+      <div class="visit-grid">
+        <div class="visit-info">
+          <span class="section-label">Vieni a Trovarci</span>
+          <h2 class="section-title">Ci vediamo a Palermo.</h2>
+          <div>
+            <div>
+              <p class="visit-label">Indirizzo</p>
+              <p class="visit-value">Via dei Candelai, 95/97<br>90134 Palermo, Italia</p>
+            </div>
+            <div>
+              <p class="visit-label">Orari</p>
+              <p class="visit-value">Aperto tutti i giorni<br>dalle 11:00 alle 00:00</p>
+            </div>
+            <div>
+              <p class="visit-label">Telefono</p>
+              <p class="visit-value"><a href="tel:+390919768817">091 976 8817</a></p>
+            </div>
+          </div>
+          <div class="visit-buttons">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Dolce%20Capo%20Gelateria%2C%20Via%20dei%20Candelai%2095%2F97%2C%2090134%20Palermo%20PA" target="_blank" rel="noopener noreferrer" class="btn-primary">Indicazioni</a>
+            <a href="tel:+390919768817" class="btn-secondary">Chiamaci</a>
+          </div>
+        </div>
+        <div class="visit-img-wrap">
+          <img src="/storefront.jpg" alt="Vetrina della gelateria Dolce Capo in Via dei Candelai, Palermo" loading="lazy">
+          <div class="visit-badge">
+            <p>Ci vediamo lì.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">Dolce Capo</span>
+      <span class="footer-copy">© MMXXVI · Palermo Artigianale · Tutti i diritti riservati</span>
+    </div>
+  </footer>
+</body>
+</html>
