@@ -353,7 +353,7 @@ function Index() {
               </div>
               <div className="pt-4 flex flex-wrap gap-3">
                 <a
-                  href="https://maps.google.com/?q=Via+dei+Candelai+95+Palermo"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Dolce+Capo+Gelateria+Via+dei+Candelai+95+Palermo&destination_place_id=ChIJ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-foreground text-background rounded-full text-xs uppercase tracking-widest font-medium hover:bg-terracotta transition-colors"
